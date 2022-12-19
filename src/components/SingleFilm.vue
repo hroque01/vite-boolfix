@@ -52,7 +52,7 @@ export default {
 <template>
     <div>
         <!-- template di card singola -->
-        <img :src="`https://image.tmdb.org/t/p/w200/${info.poster_path}`" alt="">
+        <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
         <div>Titolo: {{ info.title }}</div>
         <div>Titolo Originale: {{ info.original_title }}</div>
         <div class="flags">
@@ -62,10 +62,10 @@ export default {
         <div class="stars">
             <span>Voto:</span>
             <div v-for="star in rateFilm">
-
+                <font-awesome-icon icon="fa-solid fa-star" />
             </div>
             <div v-for="star in 5 - rateFilm">
-                <i class="fa-regular fa-star"></i>
+                <font-awesome-icon icon="fa-regular fa-star" />
             </div>
         </div>
     </div>
