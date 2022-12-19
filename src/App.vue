@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import AppHeaderVue from './components/AppHeader.vue';
 import AppMainVue from './components/AppMain.vue';
 
@@ -16,6 +17,18 @@ export default {
       store,
     }
   },
+  methos: {
+    getFilm() {
+      axios
+        .get(store.apiUrl)
+        .then(res => {
+          store.movieList = res.data.results
+        })
+        .catch(err => {
+          console.log('errore', err)
+        })
+    }
+  }
 }
 </script>
 
