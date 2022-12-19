@@ -18,7 +18,7 @@ export default {
 
 <template>
     <section>
-        <div class="container">
+        <div class="container"> <!-- to add d-flex % flex wrap -->
             <div class="row" v-for="film in store.movieList" :key="film.id">
                 <SingleFilmVue :info="film" />
             </div>
