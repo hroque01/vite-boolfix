@@ -28,6 +28,9 @@ export default {
           console.log('errore', err)
         })
     }
+  },
+  mounted() {
+    this.getFilm();
   }
 }
 </script>
