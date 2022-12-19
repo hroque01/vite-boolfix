@@ -17,10 +17,13 @@ export default {
       store,
     }
   },
-  methos: {
+  methods: {
     getFilm() {
+
+      let myApi = store.apiUrl
+
       axios
-        .get(store.apiUrl)
+        .get(myApi)
         .then(res => {
           store.movieList = res.data.results
         })

@@ -20,7 +20,7 @@ export default {
     <section>
         <div class="container">
             <div class="row" v-for="film in store.movieList" :key="film.id">
-                <SingleFilmVue />
+                <SingleFilmVue :info="film" />
             </div>
         </div>
     </section>

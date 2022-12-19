@@ -1,16 +1,16 @@
 <script>
 export default {
     name: 'SingleFilm',
-    props: [],
+    props: ['info'],
 }
 </script>
 
 <template>
-    <div class="card">
+    <div>
         <!-- template di card singola -->
-        <img src="" alt="">
-        <h4>Titolo</h4>
-        <div>Info</div>
+        <img :src="`https://image.tmdb.org/t/p/w200/${info.poster_path}`" alt="">
+        <div>Titolo: {{ info.title }}</div>
+        <div>Titolo Originale: {{ info.original_title }}</div>
         <div>Info2</div>
     </div>
 </template>
