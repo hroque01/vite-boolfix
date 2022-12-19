@@ -62,10 +62,10 @@ export default {
         <div class="stars">
             <span>Voto:</span>
             <div v-for="star in rateFilm">
-                <font-awesome-icon icon="fa-solid fa-star" />
+
             </div>
             <div v-for="star in 5 - rateFilm">
-                <font-awesome-icon icon="fa-solid fa-star" />
+                <i class="fa-regular fa-star"></i>
             </div>
         </div>
     </div>
