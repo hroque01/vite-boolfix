@@ -41,6 +41,9 @@ export default {
                 }
             }
             return this.flags[this.flags.length - 1].img
+        },
+        rateFilm() {
+            return Math.round(this.info.vote_average / 2);
         }
     }
 }   
@@ -55,6 +58,15 @@ export default {
         <div class="flags">
             <span> Language:</span>
             <img :src="flagEmoji" alt="">
+        </div>
+        <div class="stars">
+            <span>Voto:</span>
+            <div v-for="star in rateFilm">
+                <font-awesome-icon icon="fa-solid fa-star" />
+            </div>
+            <div v-for="star in 5 - rateFilm">
+                <font-awesome-icon icon="fa-solid fa-star" />
+            </div>
         </div>
     </div>
 </template>
