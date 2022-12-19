@@ -2,6 +2,7 @@
 import axios from 'axios';
 import AppHeaderVue from './components/AppHeader.vue';
 import AppMainVue from './components/AppMain.vue';
+import SearchVue from './components/Search.vue';
 
 // import store js
 import { store } from './store.js';
@@ -11,6 +12,7 @@ export default {
   components: {
     AppHeaderVue,
     AppMainVue,
+    SearchVue,
   },
   data() {
     return {
@@ -40,6 +42,7 @@ export default {
 
 <template>
   <AppHeaderVue title="Boolfix" />
+  <SearchVue />
   <main>
     <AppMainVue />
   </main>
