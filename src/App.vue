@@ -23,7 +23,7 @@ export default {
       let myApi = store.apiUrl;
 
       if (store.searchFilm !== "") {
-        myApi = `${store.SearchMovieUrl}7query=${store.searchFilm}`
+        myApi = `${store.SearchMovieUrl}&query=${store.searchFilm}`
       }
 
       axios
