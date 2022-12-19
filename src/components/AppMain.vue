@@ -1,5 +1,6 @@
 <script>
 import SingleFilmVue from './SingleFilm.vue';
+
 import { store } from '../store.js'
 
 export default {
