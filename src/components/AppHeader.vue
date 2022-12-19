@@ -1,7 +1,14 @@
 <script>
+import { store } from '../store.js'
+
 export default {
     name: "AppHeader",
-    props: ["title"]
+    props: ["title"],
+    data() {
+        return {
+            store,
+        }
+    },
 }
 </script>
 
@@ -9,6 +16,10 @@ export default {
     <h1>
         {{ title }}
     </h1>
+    <div>
+        <input type="text" v-model="store.searchFilm">
+        <button type="submit" @click.prevent="$emit('search')">Search</button>
+    </div>
 </template>
 
 <style lang="scss" scoped>
