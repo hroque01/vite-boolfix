@@ -29,7 +29,7 @@ export default {
             </nav>
         </div>
         <div class="search-bar">
-            <input type="text" v-model="store.searchFilm" @keyUp.enter="$emit('search')">
+            <input type="text" v-model="store.searchFilm" @keyup.enter="$emit('search')">
             <button class="button-search" type="submit">
                 <font-awesome-icon icon="fas fa-search" />
             </button>
