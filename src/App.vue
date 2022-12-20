@@ -43,7 +43,7 @@ export default {
 </script>
 
 <template>
-  <AppHeaderVue title="Boolfix" @search="getFilm" />
+  <AppHeaderVue title="BOOLFIX" @search="getFilm" />
   <main>
     <AppMainVue />
   </main>

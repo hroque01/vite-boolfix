@@ -4,3 +4,18 @@
 
 @import 'node_modules/@fontsource/montserrat/index.css';
 @import 'node_modules/@fontsource/montserrat/700.css';
+
+@import "@fontsource/bebas-neue";
+
+body {
+    background-color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgrey;
+}

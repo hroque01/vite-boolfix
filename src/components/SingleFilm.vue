@@ -73,7 +73,7 @@ export default {
             </div>
 
             <div v-for="star in 5 - rateFilm">
-                <font-awesome-icon icon="fa-regular fa-star" />
+                <font-awesome-icon icon="fa-solid fa-star" />
             </div>
         </div>
     </div>
