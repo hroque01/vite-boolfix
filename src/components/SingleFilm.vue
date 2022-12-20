@@ -28,7 +28,7 @@ export default {
                     lang: "es"
                 },
                 {
-                    img: 'img/rainbow.png',
+                    img: 'img/unflag.png',
                     lang: ""
                 },
             ]
@@ -52,17 +52,22 @@ export default {
 </script>
 
 <template>
-    <div @mouseover="true" @mouseleave="false">
-        <!-- Cards -->
-        <div class="cards">
-            <img :src="`https://image.tmdb.org/t/p/w200/${info.poster_path}`" alt="">
-        </div>
+    <div class="cards-hover">
+        <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
 
         <!-- Details of card -->
-        <div class="details" v-if="hover">
+        <div class="details">
             <!-- template di card singola -->
-            <div>Titolo: {{ info.title }}</div>
-            <div>Titolo Originale: {{ info.original_title }}</div>
+            <div>
+                <span>
+                    <strong> Titolo:</strong>
+                    {{ info.title }}
+                </span>
+            </div>
+            <div>
+                <strong> Titolo Originale:</strong>
+                {{ info.original_title }}
+            </div>
 
             <!-- Flags -->
             <!-- se nel loop, il flag nell'array include original_langue allora RETURN l'array immagine in base al lang (PS. il lang dell'array deve essere uguale al lang dell'API) -->
@@ -76,12 +81,17 @@ export default {
                 <span>Voto:</span>
 
                 <div v-for="star in rateFilm">
-                    <font-awesome-icon icon="fa-solid fa-star" />
+                    <font-awesome-icon icon="fa-solid fa-star" class="yellowstar" />
                 </div>
 
                 <div v-for="star in 5 - rateFilm">
-                    <font-awesome-icon icon="fa-solid fa-star" />
+                    <font-awesome-icon icon="fa-solid fa-star" class="blackstar" />
                 </div>
+            </div>
+
+            <div class="my-5">
+                <strong>Overview: </strong>
+                {{ info.overview }}
             </div>
         </div>
 
@@ -91,13 +101,46 @@ export default {
 <style lang="scss">
 @use "../styles/partials/variables.scss" as *;
 
-.cards {
-    width: 200px;
+.cards-hover {
+    position: relative;
+}
+
+.stars {
+    display: flex;
+
+    .yellowstar {
+        color: yellow;
+    }
+
+    .blackstar {
+        color: lightgrey;
+    }
+}
+
+.details {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.439);
+    color: white;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    overflow: auto;
+}
+
+.cards-hover:hover .details {
+    display: block;
 }
 
 .flags {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
     img {
-        width: 50px;
+        margin-left: 5px;
+        width: 30px;
     }
 }
 </style>

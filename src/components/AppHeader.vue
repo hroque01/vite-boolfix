@@ -30,7 +30,7 @@ export default {
             </nav>
         </div>
         <div class="search-bar">
-            <button class="button-search" type="submit">
+            <button class="button-search" type="submit" @click.prevent="$emit('search')">
                 <font-awesome-icon icon="fas fa-search" />
             </button>
             <input class="search-input" type="text" v-model="store.searchFilm" @keyup.enter="$emit('search')"
@@ -45,6 +45,7 @@ export default {
 @use '../styles/general.scss' as *;
 
 header {
+    height: 10vh;
 
     .header-nav {
         width: 70%;
