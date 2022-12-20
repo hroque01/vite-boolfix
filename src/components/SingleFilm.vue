@@ -4,6 +4,7 @@ export default {
     props: ['info'],
     data() {
         return {
+            hover: false,
             // Array of flags
             flags: [
                 {
@@ -51,36 +52,48 @@ export default {
 </script>
 
 <template>
-    <div>
-        <!-- template di card singola -->
-        <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="">
-        <div>Titolo: {{ info.title }}</div>
-        <div>Titolo Originale: {{ info.original_title }}</div>
-
-        <!-- Flags -->
-        <!-- se nel loop, il flag nell'array include original_langue allora RETURN l'array immagine in base al lang (PS. il lang dell'array deve essere uguale al lang dell'API) -->
-        <div class="flags">
-            <span> Language:</span>
-            <img :src="flagEmoji" alt="">
+    <div @mouseover="true" @mouseleave="false">
+        <!-- Cards -->
+        <div class="cards">
+            <img :src="`https://image.tmdb.org/t/p/w200/${info.poster_path}`" alt="">
         </div>
 
-        <!-- Stars [ star in rateFilm ( nella quale il voto da 10 diventa 5)] -->
-        <div class="stars">
-            <span>Voto:</span>
+        <!-- Details of card -->
+        <div class="details" v-if="hover">
+            <!-- template di card singola -->
+            <div>Titolo: {{ info.title }}</div>
+            <div>Titolo Originale: {{ info.original_title }}</div>
 
-            <div v-for="star in rateFilm">
-                <font-awesome-icon icon="fa-solid fa-star" />
+            <!-- Flags -->
+            <!-- se nel loop, il flag nell'array include original_langue allora RETURN l'array immagine in base al lang (PS. il lang dell'array deve essere uguale al lang dell'API) -->
+            <div class="flags">
+                <span> Language:</span>
+                <img :src="flagEmoji" alt="">
             </div>
 
-            <div v-for="star in 5 - rateFilm">
-                <font-awesome-icon icon="fa-solid fa-star" />
+            <!-- Stars [ star in rateFilm ( nella quale il voto da 10 diventa 5)] -->
+            <div class="stars">
+                <span>Voto:</span>
+
+                <div v-for="star in rateFilm">
+                    <font-awesome-icon icon="fa-solid fa-star" />
+                </div>
+
+                <div v-for="star in 5 - rateFilm">
+                    <font-awesome-icon icon="fa-solid fa-star" />
+                </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <style lang="scss">
 @use "../styles/partials/variables.scss" as *;
+
+.cards {
+    width: 200px;
+}
 
 .flags {
     img {
