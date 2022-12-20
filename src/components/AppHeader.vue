@@ -7,6 +7,7 @@ export default {
     data() {
         return {
             store,
+            toggle: false
         }
     },
 }
@@ -29,10 +30,11 @@ export default {
             </nav>
         </div>
         <div class="search-bar">
-            <input type="text" v-model="store.searchFilm" @keyup.enter="$emit('search')">
             <button class="button-search" type="submit">
                 <font-awesome-icon icon="fas fa-search" />
             </button>
+            <input class="search-input" type="text" v-model="store.searchFilm" @keyup.enter="$emit('search')"
+                placeholder="Cerca un film o una serie Tv">
         </div>
     </header>
 
@@ -66,15 +68,30 @@ header {
 
     .search-bar {
         display: flex;
-        gap: 1.25rem;
+        gap: 0.5rem;
         align-items: center;
-        margin: 1.25rem
+        margin: 1.25rem;
+
+        &:hover>.search-input {
+            width: 240px;
+            padding: 0 6px;
+        }
+
     }
 
     .button-search {
         border: none;
         color: white;
         background: none;
+    }
+
+    .search-input {
+        border: 1px solid lightgrey;
+        color: white;
+        background: none;
+        transition: 0.4s;
+        width: 0px;
+        padding: 0px;
     }
 
 }
